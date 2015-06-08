@@ -1,0 +1,303 @@
+#
+# ~/.config/i3/config 
+#
+
+# "windows" key for windows manager not $msft :P
+set $mod Mod4
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+font pango:Cousine, Powerline Symbols 8
+#font -artwiz-mintsstrong-*-*-*-*-*-*-*-*-*-*-*-*-*
+#font pango:Liberation Sans 10
+#font pango:Droid Sans 9
+
+
+
+focus_follows_mouse no
+
+# kill focused window
+bindsym $mod+Mod1+q kill
+
+# TODO: send notifcations with zenity
+# TODO: add modulus 10 + increment, max 100% on sink
+# TODO: add bind for iterate all applications volumes to sync with sink
+bindsym XF86AudioLowerVolume exec pactl set-sink-volume 1 -- -10%
+bindsym XF86AudioRaiseVolume exec pactl set-sink-volume 1 -- +10%
+bindsym XF86AudioMute exec pactl set-sink-mute 1 toggle
+
+
+# TODO: replace scrot and add key
+# bindsym Print  exec  scrot -s
+#
+# TODO: get shell cmds and ~/bin working here please!
+
+
+# dmenu & terms launching {{
+
+# Win (Windows 7/8 style app launch)
+# WARN: interferes with $mod+left_mouse_click dragging for resize. 
+#bindcode 133  exec dmenu_run -l 20 -fn 'Droid Sans-9:bold' -nb '#333333' -nf '#dedede' -sb '#d64937' -sf '#f9f9f9'
+
+# Win+d -> dmenu
+bindsym $mod+d exec --no-startup-id i3-dmenu-desktop --dmenu="dmenu -l 20 -fn 'Cousine-10:regular' -nb '#333333' -nf '#dedede' -sb '#d64937' -sf '#f9f9f9' -i -f " --entry-type=name --entry-type=command
+
+# Win+R -> all cms (`dmenu_run`) (like Windows!; gross?! muscle memory ☹
+bindsym $mod+r  exec --no-startup-id dmenu_run -l 20 -fn 'Cousine-10:regular' -nb '#333333' -nf '#dedede' -sb '#d64937' -sf '#f9f9f9' -i -f
+
+# start a terminal
+bindsym $mod+Return exec "urxvtcd"
+# }}}
+
+# change focus# {{{
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+# }}}
+
+# layout keys # {{{
+
+# fullscreen
+bindsym $mod+f fullscreen
+
+# split in horizontal / vertical, vim-style
+#bindsym $mod+s split v
+#bindsym $mod+v split h
+
+# change container layout
+bindsym $mod+Mod1+x layout stacking
+bindsym $mod+Mod1+c layout tabbed
+bindsym $mod+Mod1+z layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Mod1+space floating toggle
+
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus to parent / child
+#bindsym $mod+w focus parent
+#bindsym $mod+s focus child
+
+# switch to workspace
+bindsym $mod+0 workspace 10
+bindsym $mod+1 workspace 1
+bindsym $mod+2 workspace 2
+bindsym $mod+3 workspace 3
+bindsym $mod+4 workspace 4
+bindsym $mod+5 workspace 5
+bindsym $mod+6 workspace 6
+bindsym $mod+7 workspace 7
+bindsym $mod+8 workspace 8
+bindsym $mod+9 workspace 9
+
+# move focused container to workspace
+bindsym $mod+Mod1+0 move container to workspace 10
+bindsym $mod+Mod1+1 move container to workspace 1
+bindsym $mod+Mod1+2 move container to workspace 2
+bindsym $mod+Mod1+3 move container to workspace 3
+bindsym $mod+Mod1+4 move container to workspace 4
+bindsym $mod+Mod1+5 move container to workspace 5
+bindsym $mod+Mod1+6 move container to workspace 6
+bindsym $mod+Mod1+7 move container to workspace 7
+bindsym $mod+Mod1+8 move container to workspace 8
+bindsym $mod+Mod1+9 move container to workspace 9
+
+
+# layout (stacked, tabbed, toggle split)
+#bindsym $
+# reload the configuration file
+bindsym $mod+Mod1+r reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Mod1+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# L-D-U-R -> move window # {{{
+bindsym $mod+Mod1+h move left
+bindsym $mod+Mod1+j move down
+bindsym $mod+Mod1+k move up
+bindsym $mod+Mod1+l move right
+bindsym $mod+Mod1+Left move left
+bindsym $mod+Mod1+Down move down
+bindsym $mod+Mod1+Up move up
+bindsym $mod+Mod1+Right move right
+# }}}
+
+# Mouse+$mod - drag floating windows {{{
+floating_modifier $mod
+#}}}
+
+# }}}
+
+# resizing  {{{
+
+mode "resize" {
+
+bindsym h resize shrink width 50 px or 50 ppt
+bindsym k resize shrink height 50 px or 50 ppt
+bindsym j resize grow height 50 px or 50 ppt
+bindsym l resize grow width 50 px or 50 ppt
+bindsym Left resize shrink width 50 px or 50 ppt
+bindsym Up resize shrink height 50 px or 50 ppt
+bindsym Down resize grow height 50 px or 50 ppt
+bindsym Right resize grow width 50 px or 50 ppt
+
+# back to normal: Enter or Escape
+bindsym Return mode "default"
+bindsym Escape mode "default"
+bindcode 133 mode "default"
+}
+
+bindsym $mod+Mod1+s  mode "resize"
+# }}}
+
+# window decoration & colours  {{{
+
+new_window 1pixel
+new_float 1pixel
+
+# HUGG NATION                   BG       BRDR    FG      BRDRSPL
+client.focused                  #0000000 #7D0065 #AAAAAA #7D0065
+#client.focused                  #4A1626 #4A1626 #AAAAAA #4A1626
+client.focused_inactive         #000000 #000000 #000000 #000000 
+client.unfocused                #000000 #000000 #000000 #000000
+client.urgent                   #000000 #FF4D82 #AAAAAA #FF4D82
+
+# Numix inspired
+#client.focused                  #d64937 #d64937 #f9f9f9
+#client.focused_inactive         #333333 #333333 #dedede
+#client.unfocused                #333333 #333333 #dedede
+#client.urgent                   #d64937 #d64937 #f9f9f9
+
+# Numix inspired
+#client.focused                  #d64937 #d64937 #f9f9f9 #f9f9f9
+#client.focused_inactive         #333333 #333333 #dedede #dedede
+#client.unfocused                #333333 #333333 #dedede #dedede
+#client.urgent                   #d64937 #d64937 #f9f9f9 #f9f9f9
+#bar {
+ #       colors {
+  #              urgent_workspace   #2f343a #900000 #ffffff
+   #     }
+#}
+
+# Blue {{{
+#client.focused                  #2b7694 #2b7694 #f9f9f9 #f9f9f9
+#client.focused_inactive         #333333 #333333 #dedede #dedede
+#client.unfocused                #333333 #333333 #dedede #dedede
+#client.urgent                   #d64937 #d64937 #f9f9f9 #f9f9f9
+##  }}}
+
+# TODO: Why do the new themes have four parameters? 
+
+# Default# {{{
+# #class                border  backgr. text
+#client.focused          #121212 #0de6fe #9e8a8e
+#client.focused_inactive #101010 #191919 #999999
+#client.unfocused        #101010 #191919 #999999
+#client.urgent           #cd989a #cd989a #2e3436
+#client.background       #1d1d1d
+#  }}}
+
+ # }}}
+
+# status bar {{{
+
+bar {
+  output HDMI1
+  mode dock
+  position top
+  #font -artwiz-mintsstrong-*-*-normal-*-8-*-75-*-*-100-iso10646-*
+  font pango:Cousine, Powerline Symbols 10 
+  workspace_buttons off
+  status_command ~/.config/i3/conky.sh
+  tray_output all
+colors {
+  background #282A2E
+  statusline #8C93A1
+
+  # Irrelevant -- hidden
+  #focused_workspace #161616 #161616 #909737
+  #active_workspace #161616 #161616 #a5a5a5
+  #inactive_workspace #161616 #161616 #a5a5a5
+  #urgent_workspace #161616 #161616 #802828
+}
+
+
+#colors {  #what i had before 20140522
+#  background #161616
+#  statusline #605c5a
+#  focused_workspace #161616 #161616 #909737
+#  active_workspace #161616 #161616 #a5a5a5
+#  inactive_workspace #161616 #161616 #a5a5a5
+#  urgent_workspace #161616 #161616 #802828
+#}
+# i3status bar
+### "" status_command i3status --config ~/.config/i3/status
+#colors {
+#statusline #f9f9f9
+#background #333333
+#focused_workspace #2b7694 #2b7694 #f9f9f9
+#inactive_workspace #2d2d2d #2d2d2d #dedede
+##}
+
+#  Alternative colors # {{{
+#tray_output none
+#colors {
+#background #101010
+#statusline #605c5a
+#focused_workspace #101010 #101010 #0de6fe
+#active_workspace #5f5f5f #101010 #101010
+#inactive_workspace #101010 #101010 #5f5f5f
+#urgent_workspace #2e3436 #0de6d0
+#}
+# }}}
+
+}
+# }}}
+
+# Float my boat. Actually just the the popup windows please# {{{
+#----------------------------------------------------------------
+# http://i3wm.org/docs/userguide.html#command_criteria
+
+# TODO: Default floating = terrible. Fix.
+for_window [class="[.]*"] floating enable
+
+# Browsers.
+# TODO: Fix this. Iceweasel should tile, except popups and hootlet.
+#       xprop output was tiring to diff. Be a big boy and get it done, bitch.
+for_window [class="(?i)chromium" instance="(?i)Navigator"] floating disable
+for_window [class="(?i)iceweasel" instance="(?i)Navigator"] floating enable
+for_window [window_role="pop-up"] floating enable
+for_window [class="(?i)iceweasel" instance="(?i)Dialog"] floating enable
+
+# Float.
+for_window [class="(?i)Nemo"] floating enable
+for_window [class="(?i)hamster-time-tracker"] floating enable
+for_window [class="(?i)calc"] floating enable
+for_window [class="(?i)icedove"] floating disable
+for_window [class="(?i)transmission-remote-gtk"] floating enable
+for_window [class="(?i)pavucontrol"] floating enable
+for_window [class="(?i)paprefs"] floating enable
+
+# Tile.
+# Dear i3, Don't you dare float a terminal by default. I'll vomit.
+for_window [class="(?i)urxv*"] floating disable
+for_window [class="(?i)gvim"] floating disable
+for_window [class="(?i)roxterm"] floating disable
+
+# }}}
+
+
+#  vim: set ts=2 sts=0 ft=i3 fdm=marker sw=2 et:
