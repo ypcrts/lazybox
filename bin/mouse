@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# toggle the rodent
+
+# https://bitbucket.org/jasonwryan/centurion/src/120ca5085493f49e6ed0c3d42ef7992d8010e086/Scripts/mouse?at=default 
+
+
+rat=$(awk '/Mouse/ { sub(/id=/,""); print $7 }' <(xinput --list))
+
+case $1 in
+    on) xinput enable "$rat"
+        ;;
+   off) xinput disable "$rat"
+        ;;
+     *) printf '%s\n' 'on OR off…'; exit 1
+        ;;
+esac
+
