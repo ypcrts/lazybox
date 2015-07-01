@@ -18,7 +18,7 @@ fi
 /usr/bin/setxkbmap -option compose:ralt
 
 # numlock
-/usr/bin/numlockx &
+# /usr/bin/numlockx &
 
 # set cursor
 /usr/bin/xsetroot -cursor_name left_ptr &

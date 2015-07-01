@@ -54,7 +54,7 @@ bindsym $mod+r  exec --no-startup-id dmenu_run -l 20 -fn 'Cousine-10:regular' -n
 bindsym $mod+Return exec "urxvtcd"
 # }}}
 
-# change focus# {{{
+#{{{ change focus# 
 bindsym $mod+h focus left
 bindsym $mod+j focus down
 bindsym $mod+k focus up
@@ -65,7 +65,7 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 # }}}
 
-# layout keys # {{{
+#{{{ layout keys 
 
 # fullscreen
 bindsym $mod+f fullscreen
@@ -124,7 +124,7 @@ bindsym $mod+Mod1+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
 
-# L-D-U-R -> move window # {{{
+#{{{ L-D-U-R -> move window 
 bindsym $mod+Mod1+h move left
 bindsym $mod+Mod1+j move down
 bindsym $mod+Mod1+k move up
@@ -135,13 +135,13 @@ bindsym $mod+Mod1+Up move up
 bindsym $mod+Mod1+Right move right
 # }}}
 
-# Mouse+$mod - drag floating windows {{{
+#{{{ Mouse+$mod - drag floating windows
 floating_modifier $mod
 #}}}
 
 # }}}
 
-# resizing  {{{
+#{{{ resizing 
 
 mode "resize" {
 
@@ -163,7 +163,7 @@ bindcode 133 mode "default"
 bindsym $mod+Mod1+s  mode "resize"
 # }}}
 
-# window decoration & colours  {{{
+#{{{ window decoration & colours 
 
 new_window 1pixel
 new_float 1pixel
@@ -192,7 +192,7 @@ client.urgent                   #000000 #FF4D82 #AAAAAA #FF4D82
    #     }
 #}
 
-# Blue {{{
+#{{{ Blue
 #client.focused                  #2b7694 #2b7694 #f9f9f9 #f9f9f9
 #client.focused_inactive         #333333 #333333 #dedede #dedede
 #client.unfocused                #333333 #333333 #dedede #dedede
@@ -201,7 +201,7 @@ client.urgent                   #000000 #FF4D82 #AAAAAA #FF4D82
 
 # TODO: Why do the new themes have four parameters? 
 
-# Default# {{{
+#{{{ Default
 # #class                border  backgr. text
 #client.focused          #121212 #0de6fe #9e8a8e
 #client.focused_inactive #101010 #191919 #999999
@@ -212,7 +212,7 @@ client.urgent                   #000000 #FF4D82 #AAAAAA #FF4D82
 
  # }}}
 
-# status bar {{{
+#{{{ status bar
 
 bar {
   output HDMI1
@@ -252,7 +252,7 @@ colors {
 #inactive_workspace #2d2d2d #2d2d2d #dedede
 ##}
 
-#  Alternative colors # {{{
+#{{{ Alternative colors 
 #tray_output none
 #colors {
 #background #101010
@@ -267,7 +267,7 @@ colors {
 }
 # }}}
 
-# Float my boat. Actually just the the popup windows please# {{{
+#{{{ Float my boat. Actually just the the popup windows please
 #----------------------------------------------------------------
 # http://i3wm.org/docs/userguide.html#command_criteria
 

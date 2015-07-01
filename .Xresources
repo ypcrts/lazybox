@@ -68,5 +68,5 @@ URxvt.keysym.C-M-S-Down: perl:font-size:decglobal
 *askpass*background: #000000
 
 ! -- Colours -- !
-#include "/home/hugg/.config/colours/euphrasiameetsmiro"
-!#include "/home/hugg/.config/colours/euphrasia2"
+#include ".config/colours/euphrasiameetsmiro"
+!#include ".config/colours/euphrasia2"
