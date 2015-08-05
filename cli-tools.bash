@@ -1,4 +1,4 @@
-apt-get install vim-gtk\
+apt-get install\
   vcsh\
   htop\
   powertop\
@@ -9,9 +9,9 @@ apt-get install vim-gtk\
   zsh\
   vim-nox\
   rsync\
-  nodejs-legacy\
-  npm
+  # nodejs-legacy\
+  # npm
 
 chsh -s /bin/zsh `whoami`
-vcsh clone https://github.com/ypcrts/dots
-vcsh clone https://github.com/ypcrts/Xdots
+vcsh clone https://github.com/ypcrts/dots dots
+vcsh dots reset --hard HEAD

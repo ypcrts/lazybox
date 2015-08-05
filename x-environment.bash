@@ -7,5 +7,6 @@ apt-get install\
   xinit\
   dmenu\
   rxvt-unicode-256color
-
+vcsh clone https://github.com/ypcrts/Xdots Xdots
+vcsh Xdots reset --hard HEAD
 echo "install sxhkd and bspwm yourself"
