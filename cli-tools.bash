@@ -16,3 +16,5 @@ sudo apt-get install\
 chsh -s /bin/zsh `whoami`
 vcsh clone https://github.com/ypcrts/dots dots
 vcsh dots reset --HARD origin/master
+vcsh dots remote rm origin
+vcsh dots remote add origin gh:ypcrts/dots
