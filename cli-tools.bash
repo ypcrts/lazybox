@@ -1,4 +1,4 @@
-apt-get install\
+sudo apt-get install\
   vcsh\
   htop\
   powertop\
@@ -9,9 +9,10 @@ apt-get install\
   zsh\
   vim-nox\
   rsync\
+  keychain
   # nodejs-legacy\
   # npm
 
 chsh -s /bin/zsh `whoami`
 vcsh clone https://github.com/ypcrts/dots dots
-vcsh dots reset --hard HEAD
+vcsh dots reset --HARD origin/master
