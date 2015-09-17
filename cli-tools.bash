@@ -11,7 +11,8 @@ sudo apt-get install\
   zsh\
   vim-nox\
   rsync\
-  keychain
+  keychain\
+  stow
   # nodejs-legacy\
   # npm
 
