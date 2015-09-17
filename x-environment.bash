@@ -1,12 +1,36 @@
 #!/bin/bash
-apt-get install\
+set -e
+sudo apt-get install\
   x11-xserver-utils\
   iceweasel\
   xdg-utils\
   libnotify-bin\
   xinit\
   dmenu\
-  rxvt-unicode-256color
+  rxvt-unicode-256color\
+  stow
+
+# Dependencies for sxhkd and bspwm
+# https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
+sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev
+
+git clone https://github.com/baskerville/sxkhd ~
+git clone https://github.com/baskerville/bspwm ~
+
+cd ~/bspwm
+make PREFIX=/usr/local
+sudo make PREFIX=/usr/local/stow/bspwm install
+cd /usr/local/stow/bspwm
+sudo stow bspwm
+
+cd ~/sxhkd
+make PREFIX=/usr/local
+sudo make PREFIX=/usr/local/stow/sxhkd install
+cd /usr/local/stow/sxhkd
+sudo stow sxhkd
+
+# Xdots with vcsh
 vcsh clone https://github.com/ypcrts/Xdots Xdots
-vcsh Xdots reset --hard HEAD
-echo "install sxhkd and bspwm yourself"
+vcsh Xdots reset --hard origin/master 
+vcsh Xdots remote rm origin
+vcsh Xdots remote add origin gh:ypcrts/Xdots
