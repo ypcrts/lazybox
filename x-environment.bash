@@ -1,5 +1,6 @@
 #!/bin/bash
 set -e
+set -x
 sudo apt-get install\
   x11-xserver-utils\
   iceweasel\
@@ -14,8 +15,8 @@ sudo apt-get install\
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
 sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev
 
-git clone https://github.com/baskerville/sxkhd ~
-git clone https://github.com/baskerville/bspwm ~
+git clone https://github.com/baskerville/sxkhd ~/sxkhd
+git clone https://github.com/baskerville/bspwm ~/bspwm
 
 cd ~/bspwm
 make PREFIX=/usr/local
