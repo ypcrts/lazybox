@@ -14,7 +14,8 @@ sudo apt-get install\
   build-essential\
   fonts-croscore\
   xclip\
-  xsel
+  xsel\
+  xbacklight
 
 # Dependencies for sxhkd and bspwm
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
