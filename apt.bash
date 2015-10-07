@@ -1,19 +1,22 @@
 #!/bin/bash
 set -x
+set -e
 
-rm /etc/apt/sources.list
-rm /etc/apt/sources.list.d/*
-cp ./apt/all.list /etc/apt/sources.list.d/
-cp ./apt/security.list /etc/apt/sources.list.d/
-chmod 0644 /etc/apt/sources.list.d/*
+sudo mkdir -p /etc/apt/sources.list.d
+sudo rm -f /etc/apt/sources.list
+sudo rm -f /etc/apt/sources.list.d/*
+sudo cp ./apt/all.list /etc/apt/sources.list.d/
+sudo cp ./apt/security.list /etc/apt/sources.list.d/
+sudo chmod 0644 /etc/apt/sources.list.d/*
 
-rm /etc/apt/preferences
-rm /etc/apt/preferences.d/*
-cp ./apt/testing.pref /etc/apt/preferences.d/testing.pref
-chmod 0644 /etc/apt/preferences.d/*
+sudo mkdir -p /etc/apt/preferences.d
+sudo rm -f /etc/apt/preferences
+sudo rm -f /etc/apt/preferences.d/*
+sudo cp ./apt/testing.pref /etc/apt/preferences.d/testing.pref
+sudo chmod 0644 /etc/apt/preferences.d/*
 
-apt-get clean
-apt-get update
+sudo apt-get clean
+sudo apt-get update
 
-apt-get upgrade
-apt-get dist-upgrade
+sudo apt-get upgrade
+sudo apt-get dist-upgrade

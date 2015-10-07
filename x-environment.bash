@@ -9,14 +9,19 @@ sudo apt-get install\
   xinit\
   dmenu\
   rxvt-unicode-256color\
-  stow
+  stow\
+  make\
+  build-essential\
+  fonts-croscore\
+  xclip\
+  xsel
 
 # Dependencies for sxhkd and bspwm
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
 sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev
 
-git clone https://github.com/baskerville/sxkhd ~/sxkhd
-git clone https://github.com/baskerville/bspwm ~/bspwm
+git clone git://github.com/baskerville/sxhkd.git ~/sxkhd
+git clone git://github.com/baskerville/bspwm.git ~/bspwm
 
 cd ~/bspwm
 make PREFIX=/usr/local
