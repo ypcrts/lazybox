@@ -21,6 +21,9 @@ sudo apt-get install\
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
 sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libxcb-icccm4-dev libxcb-keysyms1-dev libxcb-xinerama0-dev libasound2-dev
 
+# install force firefox to use hardware rendering
+sudo cp x-environment/90-firefox /etc/X11/Xsession.d/
+
 git clone git://github.com/baskerville/sxhkd.git ~/sxkhd
 git clone git://github.com/baskerville/bspwm.git ~/bspwm
 
