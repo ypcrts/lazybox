@@ -1,13 +1,13 @@
-deb     http://debian.ec.as6453.net/debian stable         main contrib non-free
-deb-src http://debian.ec.as6453.net/debian stable         main contrib non-free
+deb     http://httpredir.debian.org/debian stable         main contrib non-free
+deb-src http://httpredir.debian.org/debian stable         main contrib non-free
 
-deb     http://debian.ec.as6453.net/debian stable-updates main contrib non-free
+deb     http://httpredir.debian.org/debian stable-updates main contrib non-free
 
-deb     http://debian.ec.as6453.net/debian testing        main contrib non-free
-deb-src http://debian.ec.as6453.net/debian testing        main contrib non-free
+deb     http://httpredir.debian.org/debian testing        main contrib non-free
+deb-src http://httpredir.debian.org/debian testing        main contrib non-free
 
-deb     http://debian.ec.as6453.net/debian unstable       main contrib non-free
-deb-src http://debian.ec.as6453.net/debian unstable       main contrib non-free
+deb     http://httpredir.debian.org/debian unstable       main contrib non-free
+deb-src http://httpredir.debian.org/debian unstable       main contrib non-free
 
-deb     http://debian.ec.as6453.net/debian experimental   main contrib non-free
-deb-src http://debian.ec.as6453.net/debian experimental   main contrib non-free
+deb     http://httpredir.debian.org/debian experimental   main contrib non-free
+deb-src http://httpredir.debian.org/debian experimental   main contrib non-free
