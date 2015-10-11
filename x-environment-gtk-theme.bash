@@ -5,7 +5,10 @@ sudo apt-get install\
   gtk2-engines-murrine\
   build-essential\
   automake\
-  libgtk-3-dev
+  libgtk-3-dev\
+  gtk2-engines-pixbuf
+  # https://bugs.launchpad.net/ubuntu/+source/light-themes/+bug/762167
+
 
 sudo rm -rf /usr/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Gnome-Shell-3.16,Vertex-Cinnamon}
 rm -rf ~/.local/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Gnome-Shell-3.16,Vertex-Cinnamon}
