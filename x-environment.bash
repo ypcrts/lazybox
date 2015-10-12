@@ -16,7 +16,9 @@ sudo apt-get install\
   xclip\
   xsel\
   xbacklight\
-  xinput
+  xinput\
+  suckless-tools\
+  xautolock
 
 # Dependencies for sxhkd and bspwm
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies

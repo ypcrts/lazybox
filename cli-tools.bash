@@ -13,7 +13,8 @@ sudo apt-get install\
   vim-nox\
   rsync\
   keychain\
-  stow
+  stow\
+  curl
   # nodejs-legacy\
   # npm
 
