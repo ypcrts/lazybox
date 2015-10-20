@@ -18,7 +18,10 @@ sudo apt-get install\
   xbacklight\
   xinput\
   suckless-tools\
-  xautolock
+  xautolock\
+  compton\
+  feh\
+  rofi
 
 # Dependencies for sxhkd and bspwm
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
