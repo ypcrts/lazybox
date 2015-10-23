@@ -14,7 +14,8 @@ sudo apt-get install\
   rsync\
   keychain\
   stow\
-  curl
+  curl\
+  info
   # nodejs-legacy\
   # npm
 

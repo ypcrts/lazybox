@@ -22,7 +22,8 @@ sudo apt-get install\
   compton\
   feh\
   rofi\
-  ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline
+  ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline\
+  redshift
 
 # Dependencies for sxhkd and bspwm
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
