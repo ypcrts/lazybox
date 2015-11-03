@@ -1,6 +1,5 @@
-#!/bin/bash
-set -e
-set -x
+#!/bin/sh
+set -xe
 sudo apt-get install\
   x11-xserver-utils\
   iceweasel\
@@ -19,6 +18,9 @@ sudo apt-get install\
   xinput\
   suckless-tools\
   xautolock\
+  i3lock\
+  imagemagick\
+  scrot
   compton\
   feh\
   rofi\
