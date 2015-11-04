@@ -20,7 +20,7 @@ sudo apt-get install\
   xautolock\
   i3lock\
   imagemagick\
-  scrot
+  scrot\
   compton\
   feh\
   rofi\
