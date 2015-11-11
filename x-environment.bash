@@ -1,5 +1,6 @@
 #!/bin/sh
 set -xe
+DIR=`pwd`
 sudo apt-get install\
   x11-xserver-utils\
   iceweasel\
@@ -34,23 +35,17 @@ sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libx
 # install force firefox to use hardware rendering
 sudo cp x-environment/90-firefox /etc/X11/Xsession.d/
 
-git clone git://github.com/baskerville/sxhkd.git ~/sxkhd
-git clone git://github.com/baskerville/bspwm.git ~/bspwm
+./x-environment-bspwm.sh
+sudo STOW_DIR=/usr/local/stow stow bspwm
 
-cd ~/bspwm
-make PREFIX=/usr/local
-sudo make PREFIX=/usr/local/stow/bspwm install
-cd /usr/local/stow/bspwm
-sudo stow bspwm
-
-cd ~/sxhkd
-make PREFIX=/usr/local
-sudo make PREFIX=/usr/local/stow/sxhkd install
-cd /usr/local/stow/sxhkd
-sudo stow sxhkd
+cd $PWD
+./x-environment-sxhkd.sh
+sudo STOW_DIR=/usr/local/stow stow sxhkd
 
 # Xdots with vcsh
+cd ~
 vcsh clone https://github.com/ypcrts/Xdots Xdots
-vcsh Xdots reset --hard origin/master 
+vcsh Xdots stash
+vcsh Xdots checkout master -- .
 vcsh Xdots remote rm origin
 vcsh Xdots remote add origin gh:ypcrts/Xdots
