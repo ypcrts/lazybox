@@ -8,7 +8,7 @@ sudo apt-get install\
   libgtk-3-dev\
   gtk2-engines-pixbuf\
   gnome-themes gnome-themes-extras\
-  gnome-standard-themes
+  gnome-themes-standard
   # https://bugs.launchpad.net/ubuntu/+source/light-themes/+bug/762167
 
 
