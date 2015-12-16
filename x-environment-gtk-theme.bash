@@ -17,7 +17,7 @@ rm -rf ~/.local/share/themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell
 rm -rf ~/.themes/{Vertex,Vertex-Dark,Vertex-Light,Vertex-Gnome-Shell,Vertex-Gnome-Shell-3.16,Vertex-Cinnamon}
 
 rm -rf vertex-theme
-git clone https://github.com/horst3180/vertex-theme --depth 1 
+git clone https://github.com/horst3180/vertex-theme --depth 1
 
 cd vertex-theme
 git fetch --tags
@@ -27,7 +27,17 @@ git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
   --disable-cinnamon \
   --disable-metacity \
   --disable-unity \
-  --disable-xfwm 
+  --disable-xfwm
+
+echo "make install? [y/N]"
+read n
+case "$n" in
+  "y"|"Y"|"J")
+    ;;
+  *)
+    exit 1
+    ;;
+esac
 
 sudo make install
 cd ..
