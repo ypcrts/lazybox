@@ -1,6 +1,20 @@
 #!/bin/sh
-set -xe
+set -e
+if [ -z "$GXG" ]; then
+  echo "Are you Guy Hughes? [N/y]"
+  read response
+  case "$response" in 
+    N)
+      unset GXG
+      ;;
+    y|Y|j|1)
+      GXG=1
+      ;;
+  esac
+  unset response
+fi
 DIR=`pwd`
+set -x
 sudo apt-get install\
   x11-xserver-utils\
   iceweasel\
@@ -45,7 +59,27 @@ sudo STOW_DIR=/usr/local/stow stow sxhkd
 # Xdots with vcsh
 cd ~
 vcsh clone https://github.com/ypcrts/Xdots Xdots
-vcsh Xdots stash
-vcsh Xdots checkout master -- .
-vcsh Xdots remote rm origin
-vcsh Xdots remote add origin gh:ypcrts/Xdots
+
+if [ -z "$GXG" ]; then
+  echo "This script wants to \`git stash\` any files in the home directory that conflict with github.com/ypcrts/dots"
+  echo "Do you want to continue? [Y/n]"
+  read response
+  case "$response" in 
+    N)
+      unset stashthestuff
+      ;;
+    y|Y|j|1)
+      stashthestuff=1
+      ;;
+  esac
+fi
+
+if [ "$GXG" = 1 ] || [ "$stashthestuff" = 1 ]; then
+  vcsh Xdots stash
+  vcsh Xdots checkout master -- .
+fi
+
+if [ "$GXG" = 1 ]; then 
+  vcsh Xdots remote rm origin
+  vcsh Xdots remote add origin gh:ypcrts/Xdots
+fi
