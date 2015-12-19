@@ -49,12 +49,11 @@ sudo apt-get install xcb libxcb-util0-dev libxcb-ewmh-dev libxcb-randr0-dev libx
 # install force firefox to use hardware rendering
 sudo cp x-environment/90-firefox /etc/X11/Xsession.d/
 
+cd "$PWD"
 ./x-environment-bspwm.sh
-sudo STOW_DIR=/usr/local/stow stow bspwm
 
-cd $PWD
+cd "$PWD"
 ./x-environment-sxhkd.sh
-sudo STOW_DIR=/usr/local/stow stow sxhkd
 
 # Xdots with vcsh
 cd ~
@@ -75,7 +74,9 @@ if [ -z "$GXG" ]; then
 fi
 
 if [ "$GXG" = 1 ] || [ "$stashthestuff" = 1 ]; then
-  vcsh Xdots stash
+  vcsh Xdots checkout -b before-you-cloned
+  vcsh Xdots add -a
+  vcsh Xdots commit -m 'automatic x-environment.sh commit'
   vcsh Xdots checkout master -- .
 fi
 

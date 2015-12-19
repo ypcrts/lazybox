@@ -53,6 +53,8 @@ case "$response" in
       ;;
 esac
 if [ "$GXG" = 1 ] || [ "$stashthestuff" = 1 ]; then
+  git checkout -b before-you-cloned
+  vcsh dots
   vcsh dots stash
   vcsh dots checkout .
 fi
