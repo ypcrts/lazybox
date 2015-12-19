@@ -39,6 +39,7 @@ sudo apt-get install\
   compton\
   feh\
   rofi\
+  xfonts-terminus xfonts-terminus-oblique\
   ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline\
   redshift
 
