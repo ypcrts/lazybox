@@ -3,7 +3,7 @@ set -e
 if [ -z "$GXG" ]; then
   echo "Are you Guy Hughes? [N/y]"
   read response
-  case "$response" in 
+  case "$response" in
     y|Y|j|1)
       GXG=1
       ;;
@@ -44,7 +44,7 @@ if [ -z "$GXG" ]; then
   echo "Do you want to continue? [Y/n]"
   read response
 fi
-case "$response" in 
+case "$response" in
     N)
       unset stashthestuff
       ;;
@@ -54,11 +54,11 @@ case "$response" in
 esac
 if [ "$GXG" = 1 ] || [ "$stashthestuff" = 1 ]; then
   git checkout -b before-you-cloned
-  vcsh dots
-  vcsh dots stash
-  vcsh dots checkout .
+  vcsh dots add -A
+  vcsh dots commit -m 'automatic cli-tool.sh commit'
+  vcsh dots checkout master
 fi
-if [ "$GXG" = 1 ]; then 
+if [ "$GXG" = 1 ]; then
   vcsh dots remote rm origin
   vcsh dots remote add origin gh:ypcrts/dots
 fi

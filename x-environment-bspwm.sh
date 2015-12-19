@@ -15,3 +15,4 @@ case "$n" in
 esac
 
 sudo make PREFIX=/usr/local/stow/bspwm install
+sudo stow -d /usr/local/stow -S bspwm

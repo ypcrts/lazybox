@@ -74,10 +74,10 @@ if [ -z "$GXG" ]; then
 fi
 
 if [ "$GXG" = 1 ] || [ "$stashthestuff" = 1 ]; then
-  vcsh Xdots checkout -b before-you-cloned
-  vcsh Xdots add -a
+  git checkout -b before-you-cloned
+  vcsh Xdots add -A
   vcsh Xdots commit -m 'automatic x-environment.sh commit'
-  vcsh Xdots checkout master -- .
+  vcsh Xdots checkout master
 fi
 
 if [ "$GXG" = 1 ]; then 
