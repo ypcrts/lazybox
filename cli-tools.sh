@@ -4,11 +4,11 @@ if [ -z "$GXG" ]; then
   echo "Are you Guy Hughes? [N/y]"
   read response
   case "$response" in 
-    N)
-      unset GXG
-      ;;
     y|Y|j|1)
       GXG=1
+      ;;
+    *)
+      unset GXG
       ;;
   esac
   unset response
