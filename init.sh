@@ -2,7 +2,7 @@
 set -e
 case "$(id -u -n)" in
   ypcrts|hugg|ypcrts)
-    GXG=true
+    GXG=1
     ;;
   *)
     if [ -z "$GXG" ]; then
