@@ -1,18 +1,6 @@
 #!/bin/sh
 set -e
-if [ -z "$GXG" ]; then
-  echo "Are you Guy Hughes? [N/y]"
-  read response
-  case "$response" in
-    y|Y|j|1)
-      GXG=1
-      ;;
-    *)
-      unset GXG
-      ;;
-  esac
-  unset response
-fi
+. ./init.sh
 set -x
 sudo apt-get install\
   lsb-release\
@@ -33,31 +21,21 @@ sudo apt-get install\
   # nodejs-legacy\
   # npm
 set +x
+
 echo "Changing shell to zsh"
 chsh -s /bin/zsh `whoami`
 
 echo "Cloning github.com/ypcrts/dots repo"
 vcsh clone https://github.com/ypcrts/dots dots
 
-if [ -z "$GXG" ]; then
-  echo "This script wants to \`git stash\` any files in the home directory that conflict with github.com/ypcrts/dots"
-  echo "Do you want to continue? [Y/n]"
-  read response
-fi
-case "$response" in
-    N)
-      unset stashthestuff
-      ;;
-    y|Y|j|1)
-      stashthestuff=1
-      ;;
-esac
-if [ "$GXG" = 1 ] || [ "$stashthestuff" = 1 ]; then
-  git checkout -b before-you-cloned
-  vcsh dots add -A
-  vcsh dots commit -m 'automatic cli-tool.sh commit'
-  vcsh dots checkout master
-fi
+echo "Committing current dot files to before-you-cloned branch"
+vcsh dots checkout -b before-you-cloned
+vcsh dots add -A
+vcsh dots commit -m 'automatic cli-tool.sh commit'
+
+echo "Checking out master"
+vcsh dots checkout master
+
 if [ "$GXG" = 1 ]; then
   vcsh dots remote rm origin
   vcsh dots remote add origin gh:ypcrts/dots
