@@ -17,10 +17,25 @@ sudo apt-get install\
   keychain\
   stow\
   curl\
+  sysfsutils\
   info
-  # nodejs-legacy\
-  # npm
 set +x
+
+if [ "$GXG" != 1 ]; then
+  echo "Do you want extended dev tools too? [y/N]\t"
+  read a
+fi
+if [ "$GXG" = 1 ] || [ "$a" = "y" ]; then
+  sudo apt-get install\
+    cmake\
+    exuberant-ctags\
+    build-essential\
+    nodejs-legacy\
+    silversearcher-ag\
+    npm\
+    colordiff
+fi
+
 
 echo "Changing shell to zsh"
 chsh -s /bin/zsh `whoami`
