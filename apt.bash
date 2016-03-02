@@ -12,7 +12,7 @@ sudo chmod 0644 /etc/apt/sources.list.d/*
 sudo mkdir -p /etc/apt/preferences.d
 sudo rm -f /etc/apt/preferences
 sudo rm -f /etc/apt/preferences.d/*
-sudo cp ./apt/testing.pref /etc/apt/preferences.d/testing.pref
+sudo cp ./apt/sid.pref /etc/apt/preferences.d/sid.pref
 sudo chmod 0644 /etc/apt/preferences.d/*
 
 sudo apt-get clean
