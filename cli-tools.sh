@@ -5,6 +5,7 @@ set -x
 sudo apt-get install\
   lsb-release\
   vcsh\
+  atop\
   htop\
   powertop\
   tmux\
@@ -32,6 +33,7 @@ if [ "$GXG" = 1 ] || [ "$a" = "y" ]; then
     build-essential\
     nodejs-legacy\
     silversearcher-ag\
+    python-dev/ #needed for YouCompleteMe
     npm\
     colordiff
 fi
