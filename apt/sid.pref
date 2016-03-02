@@ -22,26 +22,34 @@
 #           prevents the version from being installed
 
 Package: *
-Pin: release l=Debian-Security
-Pin-Priority: 502 
+Pin: release l=Debian-Security origin security.debian.org
+Pin-Priority: 93 
+
+Package: *
+Pin: release a=stable-updates 
+Pin-Priority: 92 
 
 Package: *
 Pin: release a=stable
-Pin-Priority: 500
+Pin-Priority: 90
 
 Package: *
 Pin: release a=testing
-Pin-Priority: 550 
+Pin-Priority: 91 
 
 Package: *
 Pin: release a=unstable
-Pin-Priority: -1
+Pin-Priority: 500
 
 Package: *
 Pin: release a=experimental
-Pin-Priority: 1
+Pin-Priority: 10
 
-Package: /libreoffice/
-Pin: release a=unstable
-Pin-Priority: 999
+# Package: /munin/
+# Pin: release a=experimental
+# Pin-Priority: 1001
 
+
+# Package: /libreoffice/
+# Pin: version 1:5.1.0*
+# Pin-Priority: 1001
