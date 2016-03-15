@@ -30,6 +30,7 @@ if [ "$GXG" = 1 ] || [ "$a" = "y" ]; then
   sudo apt-get install\
     cmake\
     exuberant-ctags\
+    cproto\
     build-essential\
     nodejs-legacy\
     silversearcher-ag\
