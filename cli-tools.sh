@@ -20,24 +20,25 @@ sudo apt-get install\
   curl\
   sysfsutils\
   bash-completion\
+  libncurses5-dev\ # needed to build fzf
+silversearcher-ag\ # reminder: you hate life without this [ypcrts // 20160319T2257Z]
+npm\
+  colordiff\
   info
 set +x
 
-if [ "$GXG" != 1 ]; then
+if [ "$GXG_INTERACTIVE" != 0 ]; then
   echo "Do you want extended dev tools too? [y/N]\t"
   read a
-fi
-if [ "$GXG" = 1 ] || [ "$a" = "y" ]; then
-  sudo apt-get install\
-    cmake\
-    exuberant-ctags\
-    cproto\
-    build-essential\
-    nodejs-legacy\
-    silversearcher-ag\
-    python-dev/ #needed for YouCompleteMe
-    npm\
-    colordiff
+  if [ "$a" = "y" ]; then
+    sudo apt-get install\
+      cmake\
+      exuberant-ctags\
+      cproto\
+      build-essential\
+      nodejs-legacy\
+      python-dev #needed for YouCompleteMe
+  fi
 fi
 
 
@@ -50,7 +51,7 @@ vcsh clone https://github.com/ypcrts/dots dots
 
 echo "Committing current dot files to before-you-cloned branch"
 vcsh dots checkout -b before-you-cloned
-vcsh dots add -A
+vcsh dots add -A .
 vcsh dots commit -m 'automatic cli-tool.sh commit'
 
 echo "Checking out master"
