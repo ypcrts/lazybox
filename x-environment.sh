@@ -5,6 +5,7 @@ DIR=`pwd`
 set -x
 sudo apt-get install\
   x11-xserver-utils\
+  firefox-esr\
   iceweasel\
   xdg-utils\
   libnotify-bin\
@@ -27,6 +28,7 @@ sudo apt-get install\
   compton\
   feh\
   rofi\
+  xdotool\
   xfonts-terminus xfonts-terminus-oblique\
   ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline\
   redshift
