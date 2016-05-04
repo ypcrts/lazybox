@@ -5,8 +5,7 @@ DIR=`pwd`
 set -x
 sudo apt-get install\
   x11-xserver-utils\
-  firefox-esr\
-  iceweasel\
+  chromium\
   xdg-utils\
   libnotify-bin\
   xinit\
@@ -22,16 +21,20 @@ sudo apt-get install\
   xinput\
   suckless-tools\
   xautolock\
-  i3lock\
+  i3lock/unstable\
   imagemagick\
   scrot\
   compton\
   feh\
-  rofi\
+  rofi/unstable\
   xdotool\
+  iceweasel\
   xfonts-terminus xfonts-terminus-oblique\
   ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline\
   redshift
+
+
+#firefox-esr\
 
 # Dependencies for sxhkd and bspwm
 # https://github.com/windelicato/dotfiles/wiki/bspwm-for-dummies
@@ -48,14 +51,23 @@ cd "$PWD"
 cd "$PWD"
 ./x-environment-sxhkd.sh
 
+cd "$PWD"
+./x-environment-gtk-icons.bash
+cd "$PWD"
+./x-environment-gtk-theme.bash
+cd "$PWD"
+./x-environment-siji-font.bash
+
+
+
 # Xdots with vcsh
 cd ~
-vcsh clone https://github.com/ypcrts/Xdots Xdots
+vcsh clone github:ypcrts/Xdots Xdots
 
-echo "Committing current dot files to before-you-cloned branch"
-vcsh Xdots checkout -b before-you-cloned
-vcsh Xdots add -A
-vcsh Xdots commit -m 'automatic x-environment.sh commit'
+#echo "Committing current dot files to before-you-cloned branch"
+#vcsh Xdots checkout -b before-you-cloned
+#vcsh Xdots add -A
+#vcsh Xdots commit -m 'automatic x-environment.sh commit'
 
 echo "Checking out mater"
 vcsh Xdots checkout master

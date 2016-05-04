@@ -6,7 +6,7 @@ if ! command -V git 2>/dev/null >/dev/null || ! command -V vcsh 2>/dev/null >/de
 fi
 
 echo "Cloning github.com/ypcrts/dots repo"
-vcsh clone https://github.com/ypcrts/dots dots
+vcsh clone github:ypcrts/dots dots
 
 echo "Checking out master"
 vcsh dots branch master origin/master

@@ -1,7 +1,7 @@
 #!/bin/sh
 set -xe
 
-git clone git://github.com/lemonboy/bar ./lemonbar && cd ./lemonbar || cd ./lemonbar && git pull origin 
+git clone github:lemonboy/bar ./lemonbar && cd ./lemonbar || cd ./lemonbar && git pull origin 
 
 make all
 

@@ -1,10 +1,11 @@
 . ./init.sh
 set -xe
-git clone git://github.com/baskerville/sxhkd.git ./sxhkd && cd ./sxhkd || cd ./sxhkd && git fetch --all
+git clone github:baskerville/sxhkd.git ./sxhkd && cd ./sxhkd || cd ./sxhkd && git fetch --all
 make PREFIX=/usr/local
 
 # keep pointer motions support
 git fetch --tags origin
+# git checkout 0.5.5
 git checkout 0.5.6
 
 if [ "$GXG" -ne 0 ]; then

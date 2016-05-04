@@ -1,9 +1,8 @@
 #!/bin/sh
 set -xe
-if [ "$(id -u)" != 0 ]; then
-  echo 'fatal: run as root'
-  exit 1
-fi 
+./init.sh
+
+assert_is_root
 
 #{{{1 APT Sources
 rm -vf /etc/apt/sources.list
