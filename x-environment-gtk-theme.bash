@@ -7,8 +7,7 @@ sudo apt-get install\
   automake\
   libgtk-3-dev\
   gtk2-engines-pixbuf\
-  gnome-themes gnome-themes-extras\
-  gnome-themes-standard
+  gnome-themes-standard-data
   # https://bugs.launchpad.net/ubuntu/+source/light-themes/+bug/762167
 
 
