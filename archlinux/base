@@ -1,0 +1,24 @@
+#!/bin/sh
+set -x
+
+#shell
+deps+=(bash-completion zsh zsh-completions)
+deps+=(sudo git openssh gnupg)
+deps+=(tmux ranger stow htop tree)
+deps+=(nmap nbtscan bind-tools)
+
+#vim
+deps+=(gvim neovim python2 python)
+
+#aur
+aurdeps+=(powerpill bauerbill)
+
+
+pacman -S --needed "${deps[@]}"
+
+#TODO install cower
+#TODO install pacaur
+
+pacaur -Ss "${aurdeps[@]}"
+
+

@@ -1,0 +1,17 @@
+#!/bin/bash
+#xorg
+deps+=(bspwm sxhkd compton redshift xorg-server)
+deps+=(qutebrowser firefox chromium)
+
+# thinklock
+deps+=(libnotify dunst)
+deps+=(i3lock imagemagick scrot xautolock)
+
+#urxvt
+deps+=(terminus-font rxvt-unicode ttf-croscore)
+
+#moar fonts
+deps+=(ttf-droid ttf-fira-mono ttf-fira-sans ttf-inconsolata ttf-vista-fonts adobe-source-sans-pro-fonts)
+
+aur+=(ttf-ms-fonts)
+
