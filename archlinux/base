@@ -3,7 +3,7 @@ set -x
 
 #shell
 deps+=(bash-completion zsh zsh-completions)
-deps+=(sudo git openssh gnupg)
+deps+=(sudo git openssh mosh gnupg)
 deps+=(tmux ranger stow htop tree)
 deps+=(nmap nbtscan bind-tools)
 
