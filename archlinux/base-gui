@@ -13,5 +13,6 @@ deps+=(terminus-font rxvt-unicode ttf-croscore)
 #moar fonts
 deps+=(ttf-droid ttf-fira-mono ttf-fira-sans ttf-inconsolata ttf-vista-fonts adobe-source-sans-pro-fonts)
 
-aur+=(ttf-ms-fonts)
+aur+=(ttf-ms-fonts vertex-themes-git)
 
+bb-wrapper --S --aur "${deps[@]} ${aur[@]}"
