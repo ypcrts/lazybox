@@ -6,6 +6,7 @@ deps+=(bash-completion zsh zsh-completions)
 deps+=(sudo git openssh mosh gnupg)
 deps+=(tmux ranger stow htop tree)
 deps+=(nmap nbtscan bind-tools)
+deps+=(perl-rename unzip)
 
 #vim
 deps+=(gvim neovim python2 python)
