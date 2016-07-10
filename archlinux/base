@@ -8,7 +8,7 @@ deps+=(ntp) # do not use on a laptop -- chronis
 deps+=(bash-completion zsh zsh-completions)
 deps+=(sudo git openssh mosh gnupg)
 deps+=(tmux ranger stow htop tree)
-deps+=(nmap nbtscan bind-tools)
+deps+=(nmap nbtscan bind-tools rfkill)
 deps+=(perl-rename unzip)
 
 #vim
