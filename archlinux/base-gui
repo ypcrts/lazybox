@@ -2,7 +2,7 @@
 #xorg
 deps+=(bspwm sxhkd compton redshift xorg-server)
 deps+=(qutebrowser firefox chromium)
-deps+=(xorg-xev xorg-xinit xorg-xrandr xorg-xprop xsel)
+deps+=(xorg-xev xorg-xinit xorg-xrandr xorg-xprop xorg-xdpyinfo xsel)
 
 # thinklock
 deps+=(libnotify dunst)
