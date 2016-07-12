@@ -19,4 +19,4 @@ deps+=(ttf-droid ttf-fira-mono ttf-fira-sans ttf-inconsolata ttf-vista-fonts ado
 aur+=(ttf-ms-fonts vertex-themes-git)
 aur+=(lemonbar-git siji-git)
 
-bb-wrapper --S --aur "${deps[@]} ${aur[@]}"
+bb-wrapper -S --aur "${deps[@]} ${aur[@]}"
