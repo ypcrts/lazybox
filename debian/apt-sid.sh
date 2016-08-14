@@ -1,6 +1,6 @@
 #!/bin/sh
 set -xe
-./init.sh
+. ./init.sh
 
 assert_is_root
 

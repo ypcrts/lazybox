@@ -1,6 +1,7 @@
 . ./init.sh
 set -xe
-git clone github:baskerville/sxhkd.git ./sxhkd && cd ./sxhkd || cd ./sxhkd && git fetch --all
+git clone https://github.com/baskerville/sxhkd.git ./sxhkd && cd ./sxhkd || cd ./sxhkd && git fetch --all
+git clone https://github.com/baskerville/sxhkd.git ./sxhkd && cd ./sxhkd || cd ./sxhkd && git fetch --all
 make PREFIX=/usr/local
 
 # keep pointer motions support
