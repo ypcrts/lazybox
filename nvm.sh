@@ -1,10 +1,10 @@
 #!/bin/sh
-set -xe
+set -e
 if [ -d ~/.nvm ]; then
   printf "\nnvm already installed"
   exit 0
 fi
-git clone github:creationix/nvm.git ~/.nvm
+git clone https://github.com/creationix/nvm.git ~/.nvm
 cd ~/.nvm
 git checkout `git describe --abbrev=0 --tags`
-printf "\nnvm install complete\nUse \`loadenv nvm\` to get started."
+printf "\nnvm install complete\nUse \`loadenv nvm\` to get started.\n"
