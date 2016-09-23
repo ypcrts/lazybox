@@ -4,7 +4,7 @@ set -e
 assert_is_root
 set -x
 declare -a pkgs
-pkgs+=(lxappearance arandr qt4-qtconfig)
+pkgs+=(policykit-1 xscreensaver lxappearance arandr qt4-qtconfig surfraw surfraw-extra)
 
 set +x
 apt-get install "${pkgs[@]}"
