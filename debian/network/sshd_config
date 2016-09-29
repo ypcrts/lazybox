@@ -7,14 +7,13 @@ Port 22
 #ListenAddress ::
 #ListenAddress 0.0.0.0
 
-# Cryptology: Server Keys
+# Crypto
 HostKey /etc/ssh/ssh_host_rsa_key
-HostKey /etc/ssh/ssh_host_dsa_key
-HostKey /etc/ssh/ssh_host_ecdsa_key
+#HostKey /etc/ssh/ssh_host_ed25519_key # generate me
 KeyRegenerationInterval 3600
-ServerKeyBits 2048
-
-# Cryptology: Connection Ciphers
+ServerKeyBits 4098
+KexAlgorithms curve25519-sha256@libssh.org,diffie-hellman-group-exchange-sha256 
+MACs hmac-sha2-512-etm@openssh.com,hmac-sha2-256-etm@openssh.com,hmac-ripemd160-etm@openssh.com,umac-128-etm@openssh.com,hmac-sha2-512,hmac-sha2-256,hmac-ripemd160,umac-128@openssh.com
 Ciphers aes256-gcm@openssh.com,aes128-gcm@openssh.com,aes256-ctr,chacha20-poly1305@openssh.com
 
 # SFTP
