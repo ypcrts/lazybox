@@ -3,3 +3,4 @@ brew install coreutils binutils diffutils ed findutils gawk gnu-indent gnu-sed g
 brew install wdiff --with-gettext
 brew install python python3
 brew install bash-completion zsh-completiions
+brew install tree
