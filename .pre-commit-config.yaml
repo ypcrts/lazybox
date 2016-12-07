@@ -1,0 +1,4 @@
+-   repo: git://github.com/pre-commit/pre-commit-hooks
+    sha: 4ef03c4223ad322c7adaa6c6c0efb26b57df3b71
+    hooks:
+    -   id: trailing-whitespace
