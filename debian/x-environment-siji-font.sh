@@ -24,7 +24,7 @@ sudo install -d -m755 /usr/local/share/fonts
 sudo stow -d /usr/local/stow -S siji
 sudo chmod +rx /usr/local/share/fonts
 cd ..
-rm -rf siji
+#rm -rf siji
 
 xset +fp /usr/local/share/fonts
 xset fp rehash

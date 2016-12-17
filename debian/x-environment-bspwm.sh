@@ -2,9 +2,8 @@
 . ./init.sh
 set -xe
 git clone --depth 1 https://github.com/baskerville/bspwm.git ./bspwm && cd bspwm || cd bspwm # && git pull origin master
-git clone --depth 1 https://github.com/baskerville/bspwm.git ./bspwm && cd bspwm || cd bspwm # && git pull origin master
 git fetch --tags
-git checkout 0.9.1
+git checkout 0.9.2
 
 make PREFIX=/usr/local
 

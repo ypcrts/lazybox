@@ -1,11 +1,10 @@
 . ./init.sh
-assert_is_root
 set -xe
 git clone https://github.com/baskerville/sxhkd.git ./sxhkd || /bin/true
 cd ./sxhkd && git fetch --all --tags
 
 # keep pointer motions support
-git checkout 0.5.6
+git checkout 0.5.7
 
 make PREFIX=/usr/local
 
@@ -21,6 +20,6 @@ if [ "$GXG" -ne 0 ]; then
   esac
 fi
 
-make PREFIX=/usr/local/stow/sxhkd install
+sudo make PREFIX=/usr/local/stow/sxhkd install
 cd /usr/local/stow/sxhkd
 STOW_DIR=/usr/local/stow stow sxhkd
