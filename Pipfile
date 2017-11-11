@@ -1,0 +1,41 @@
+[[source]]
+
+verify_ssl = true
+name = "pypi"
+url = "https://pypi.python.org/simple"
+
+
+[packages]
+
+ansible = "*"
+tabview = "*"
+aioftp = "*"
+aiohttp = "*"
+attrs = "*"
+"autopep8" = "*"
+neovim = "*"
+awscli = "*"
+"bs4" = "*"
+click = "*"
+dnspython = "*"
+docopt = "*"
+fire = "*"
+future = "*"
+git-repo = "*"
+ipython = "*"
+lxml = "*"
+msgpack-python = "*"
+pygithub = "*"
+gitpython = "*"
+oauthlib = "*"
+pycodestyle = "*"
+pylint = "*"
+pyjwt = "*"
+pyyaml = "*"
+saws = "*"
+six = "*"
+pipenv = "*"
+
+
+[dev-packages]
+
