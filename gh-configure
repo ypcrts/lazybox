@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
-echo <<EOF > ~/.gh.json
-"api": {
-    "host": "api.github.com",
-    "protocol": "https",
-    "version": "3.0.0",
-    "pathPrefix": null,
-    "default _remote": "origin",
-    "github_user": "INSERT USERNAME HERE MORON",
-    "github_token": "INSERT TOKEN HERE MORON"
+cat - <<EOF > ~/.gh.json
+{
+  "api": {
+      "host": "api.github.com",
+      "protocol": "https",
+      "version": "3.0.0",
+      "pathPrefix": null,
+      "default_remote": "origin",
+      "github_token": "INSERT TOKEN HERE MORON"
+  }
 }
 EOF
