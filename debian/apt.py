@@ -12,7 +12,7 @@ opts = parser.parse_args()
 assert os.geteuid() == 0, "must be root"
 
 packages = ["tmux",
-            "screen",
+            "screen"
             "mosh",
             "ssh",
             "git",
@@ -34,7 +34,9 @@ if opts.with_dev or opts.all:
         "clang-format",
         "build-essential",
         "python-dev",
-        "silversearcher-ag",))
+        "rust",
+        "golang-go",
+    ))
 
 if opts.with_c or opts.all:
     packages.extend(("clang", "cmake", "exuberant-ctags", "cproto",))
