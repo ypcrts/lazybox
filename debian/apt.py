@@ -12,9 +12,10 @@ opts = parser.parse_args()
 assert os.geteuid() == 0, "must be root"
 
 packages = ["tmux",
+            "screen",
             "mosh",
-            "git",
             "ssh",
+            "git",
             "bash-completion",
             "tree",
             "rsync",
