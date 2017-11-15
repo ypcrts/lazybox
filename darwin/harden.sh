@@ -8,4 +8,5 @@ sudo /usr/libexec/ApplicationFirewall/socketfilterfw --setallowsigned off
 sudo pkill -HUP socketfilterfw
 
 
+# NEVER AGAIN DNSMASQ - REMEMBER THE CODE AUDIT FAILS
 # brew install dnsmasq --with-dnssec
