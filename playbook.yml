@@ -1,6 +1,7 @@
 ---
-# vi: ft=ansible tw=0 ts=2 sw=2 sts=2 fdm=markeret:
+# vi: ft=ansible tw=0 ts=2 sw=2 et:
 - hosts: all
   roles:
     - security
+  become: true
 ...

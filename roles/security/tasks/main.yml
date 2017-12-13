@@ -31,59 +31,11 @@
       lineinfile: path=/etc/ssh/sshd_config backrefs=yes
                   regexp="^[\s#]*(PubkeyAuthentication)" line="\1 yes"
 
-    - name: AllowUsers
-      lineinfile: path=/etc/ssh/sshd_config backrefs=yes
-                  regexp="^[\s#]*(AllowUsers)" line="{{ users.admin }}@127.0.0.1"
+    # - name: AllowUsers
+    #   lineinfile: path=/etc/ssh/sshd_config backrefs=yes
+    #               regexp="^[\s#]*(AllowUsers)" line="\1 {{ users.admin }}@127.0.0.1"
 
-    - name: AllowUsers
-      lineinfile: path=/etc/ssh/sshd_config backrefs=yes
-                  regexp="^[\s#]*(AllowUsers)" line="{{ users.user }}@127.0.0.1"
 
 - name: iptables base setup
-  shell: |
-    # FLUSH EVERYTHING
-    iptables  -F
-    ip6tables -F
-
-    iptables  -X
-    ip6tables -X
-
-    iptables  -Z
-    ip6tables -Z
-
-    # TCP SYN FLOOD: DoS
-    iptables  -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
-    ip6tables -A INPUT -p tcp ! --syn -m state --state NEW -j DROP
-
-    # TCP NULL: portscan
-    iptables  -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
-    ip6tables -A INPUT -p tcp --tcp-flags ALL NONE -j DROP
-
-    # TCP XMAS: portscan
-    iptables  -A INPUT -p tcp --tcp-flags ALL ALL -j DROP
-    ip6tables -A INPUT -p tcp --tcp-flags ALL ALL -j DROP
-
-    # SSH
-    iptables  -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
-    ip6tables -A INPUT -p tcp -m tcp --dport 22 -j ACCEPT
-
-    iptables  -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-    ip6tables -I INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
-
-    iptables  -A INPUT -i lo -j ACCEPT
-    ip6tables -A INPUT -i lo -j ACCEPT
-
-    # POLICY
-    iptables  -P OUTPUT ACCEPT
-    ip6tables -P OUTPUT ACCEPT
-
-    iptables  -P INPUT DROP
-    ip6tables -P INPUT DROP
-
-    iptables  -P FORWARD DROP
-    ip6tables -P FORWARD DROP
-
-    iptables-save  >| /etc/iptables/save.v4
-    ip6tables-save >| /etc/iptables/save.v6
-  become: true
+  script: files/firewall.sh
 ...
