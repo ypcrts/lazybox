@@ -20,7 +20,12 @@ packages = ["tmux",
             "tree",
             "rsync",
             "curl",
+            "pandoc",
+            "w3m",
+            "w3m-img",
+            "ranger"
             "sysfsutils",
+            "gnupg",
             "info",
             "vim-nox",
             "htop",
@@ -30,7 +35,6 @@ packages = ["tmux",
 if opts.with_dev or opts.all:
     packages.extend((
         "libncurses5-dev",  # needed to build fzf
-        "gnupg",
         "clang-format",
         "build-essential",
         "python-dev",
