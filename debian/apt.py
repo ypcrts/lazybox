@@ -13,6 +13,7 @@ assert os.geteuid() == 0, "must be root"
 
 packages = ["tmux",
             "screen"
+            "lsof",
             "mosh",
             "ssh",
             "git",
