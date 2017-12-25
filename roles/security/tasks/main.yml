@@ -9,7 +9,7 @@
 
     - name: ipv4 only
       lineinfile: path=/etc/ssh/sshd_config backrefs=yes
-                  regexp="^[\s#]*(AddressFamily)" line="\1 inet4"
+                  regexp="^[\s#]*(AddressFamily)" line="\1 inet"
 
     - name: no ipv6 listen
       lineinfile: path=/etc/ssh/sshd_config
