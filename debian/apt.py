@@ -39,7 +39,8 @@ if opts.with_dev or opts.all:
         "clang-format",
         "build-essential",
         "python-dev",
-        "rust",
+        "rustc",
+        "cargo",
         "golang-go",
     ))
 
