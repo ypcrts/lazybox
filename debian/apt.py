@@ -12,7 +12,7 @@ opts = parser.parse_args()
 assert os.geteuid() == 0, "must be root"
 
 packages = ["tmux",
-            "screen"
+            "screen",
             "lsof",
             "mosh",
             "ssh",
@@ -24,7 +24,7 @@ packages = ["tmux",
             "pandoc",
             "w3m",
             "w3m-img",
-            "ranger"
+            "ranger",
             "sysfsutils",
             "gnupg",
             "info",

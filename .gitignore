@@ -4,3 +4,5 @@
 /debian/lemonbar/
 /debian/siji/
 /Pipfile.lock
+/iosevka
+/*-iosevka*.zip
