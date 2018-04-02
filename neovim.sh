@@ -1,7 +1,9 @@
 #!/bin/sh
 
 
-echo "INCOMPLETE CONCEPT SCRIPT"
+for i in 1..100; do
+  echo "INCOMPLETE CONCEPT SCRIPT"
+done
 
 exit 99
 
