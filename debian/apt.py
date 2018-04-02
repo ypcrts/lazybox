@@ -6,6 +6,7 @@ import os
 parser = argparse.ArgumentParser(description='install base apt packages')
 parser.add_argument('--with-dev', action='store_true')
 parser.add_argument('--with-c', action='store_true')
+parser.add_argument('--with-rust', action='store_true')
 parser.add_argument('-a', '--all', action='store_true')
 opts = parser.parse_args()
 
@@ -39,13 +40,18 @@ if opts.with_dev or opts.all:
         "clang-format",
         "build-essential",
         "python-dev",
-        "rustc",
-        "cargo",
         "golang-go",
     ))
 
 if opts.with_c or opts.all:
     packages.extend(("clang", "cmake", "exuberant-ctags", "cproto",))
+
+if opts.with_rust or opts.all:
+    packages.extend((
+        "rustc",
+        "cargo",
+    ))
+
 
 os.execvp('apt-get', ['apt-get', 'install', '-y'] + packages)
 
