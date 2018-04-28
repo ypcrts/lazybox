@@ -3,7 +3,7 @@ echo Clone repo...
 if [ -d ~/tools ]; then
   echo '~/tools exists, skipping'
 else
-  git clone github:ypcrts/tools ~/tools
+  git clone gitlab:ypcrts/tools ~/tools
 fi
 
 echo Symlink zardus management script
