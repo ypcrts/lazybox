@@ -2,12 +2,14 @@
 
 import argparse
 import os
+import subprocess
 
 parser = argparse.ArgumentParser(description='install base apt packages')
 parser.add_argument('--with-dev', action='store_true')
 parser.add_argument('--with-c', action='store_true')
 parser.add_argument('--with-rust', action='store_true')
 parser.add_argument('--with-neovim-unstable', action='store_true')
+parser.add_argument('--with-i386', action='store_true')
 parser.add_argument('-a', '--all', action='store_true')
 opts = parser.parse_args()
 
@@ -18,14 +20,14 @@ packages = ["tmux",
             "lsof",
             "mosh",
             "ssh",
-            "git", "subversion"
+            "git", "subversion",
             "bash-completion",
             "tree",
             "rsync", "curl", "wget",
             "pandoc",
             "w3m", "w3m-img",
             "virtualenvwrapper",
-            "lsb-release"
+            "lsb-release",
             "ranger",
             "unzip",
             "sysfsutils",
@@ -62,7 +64,16 @@ if opts.with_rust or opts.all:
 if opts.with_neovim_unstable or opts.all:
     packages.append('neovim/unstable')
 
+if opts.with_i386 or opts.all:
+    print('\nADDING i386 ARCH')
+    subprocess.call(['dpkg', '--add-architecture', 'i386'])
 
-os.execvp('apt-get', ['apt-get', 'install', '-y'] + packages)
+print('\nAPT UPDATE')
+subprocess.call(['apt-get','update'])
+
+print('\nAPT INSTALL')
+cmd = ['apt-get', 'install', '-y'] + packages
+print(cmd)
+os.execvp(cmd[0], cmd)
 
 # vi: ft=python:tw=0:ts=8:sw=4:sts=4:fdm=manual et:
