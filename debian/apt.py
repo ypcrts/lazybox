@@ -7,6 +7,7 @@ parser = argparse.ArgumentParser(description='install base apt packages')
 parser.add_argument('--with-dev', action='store_true')
 parser.add_argument('--with-c', action='store_true')
 parser.add_argument('--with-rust', action='store_true')
+parser.add_argument('--with-neovim-unstable', action='store_true')
 parser.add_argument('-a', '--all', action='store_true')
 opts = parser.parse_args()
 
@@ -17,15 +18,16 @@ packages = ["tmux",
             "lsof",
             "mosh",
             "ssh",
-            "git",
+            "git", "subversion"
             "bash-completion",
             "tree",
-            "rsync",
-            "curl",
+            "rsync", "curl", "wget",
             "pandoc",
-            "w3m",
-            "w3m-img",
+            "w3m", "w3m-img",
+            "virtualenvwrapper",
+            "lsb-release"
             "ranger",
+            "unzip",
             "sysfsutils",
             "gnupg",
             "info",
@@ -39,9 +41,13 @@ if opts.with_dev or opts.all:
     packages.extend((
         "libncurses5-dev",  # needed to build fzf
         "clang-format",
-        "build-essential",
         "python-dev",
         "golang-go",
+        "build-essential", # zardus prereqs
+        "libtool",
+        "g++", "gcc",
+        "texinfo",
+        "automake", "autoconf"
     ))
 
 if opts.with_c or opts.all:
@@ -52,6 +58,9 @@ if opts.with_rust or opts.all:
         "rustc",
         "cargo",
     ))
+
+if opts.with_neovim_unstable or opts.all:
+    packages.append('neovim/unstable')
 
 
 os.execvp('apt-get', ['apt-get', 'install', '-y'] + packages)
