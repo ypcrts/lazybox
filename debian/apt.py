@@ -29,6 +29,7 @@ packages = ["tmux",
             "sysfsutils",
             "gnupg",
             "info",
+            "jq",
             "vim-nox",
             "htop",
             "powertop", ]
