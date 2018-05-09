@@ -24,9 +24,7 @@ packages = ["tmux",
             "bash-completion",
             "tree",
             "rsync", "curl", "wget",
-            "pandoc",
-            "w3m", "w3m-img",
-            "virtualenvwrapper",
+            "pandoc", "w3m", "w3m-img",
             "lsb-release",
             "ranger",
             "unzip",
@@ -44,12 +42,14 @@ if opts.with_dev or opts.all:
         "libncurses5-dev",  # needed to build fzf
         "clang-format",
         "python-dev",
+        "virtualenvwrapper",
         "golang-go",
         "build-essential", # zardus prereqs
         "libtool",
         "g++", "gcc",
         "texinfo",
-        "automake", "autoconf"
+        "automake", "autoconf",
+        "magic-wormhole"
     ))
 
 if opts.with_c or opts.all:
