@@ -57,8 +57,8 @@ if opts.with_c or opts.all:
 
 if opts.with_rust or opts.all:
     packages.extend((
-        "rustc",
-        "cargo",
+        "rustc/unstable",
+        "cargo/unstable",
     ))
 
 if opts.with_neovim_unstable or opts.all:
