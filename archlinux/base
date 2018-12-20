@@ -1,11 +1,8 @@
 #!/bin/sh
 set -x
 
-#time
-deps+=(ntp) # do not use on a laptop -- chronis
-
 #shell
-deps+=(bash-completion zsh zsh-completions)
+deps+=(bash-completion)
 deps+=(sudo git openssh mosh gnupg)
 deps+=(tmux ranger stow htop tree)
 deps+=(nmap nbtscan bind-tools rfkill)
@@ -14,18 +11,12 @@ deps+=(perl-rename unzip)
 #vim
 deps+=(gvim neovim python2 python)
 
-#aur
-aurdeps+=(powerpill bauerbill)
-
-
 pacman -S --needed "${deps[@]}"
 
-#TODO install cower
-#TODO install pacaur
-
-pacaur -Ss "${aurdeps[@]}"
-
-systemctl start ntpd
-systemctl enable ntpd
-
+# yay - aur helper in golang
+mkdir -p ~/Projects
+cd ~/Projects
+git clone https://aur.archlinux.org/yay
+cd yay
+makepackage -si
 

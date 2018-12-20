@@ -1,10 +1,10 @@
 #!/bin/bash
 #xorg
 deps+=(bspwm sxhkd compton redshift xorg-server)
-deps+=(qutebrowser firefox chromium surfraw)
+deps+=(firefox chromium)
 deps+=(xorg-xev xorg-xinit xorg-xrandr xorg-xprop xorg-xdpyinfo xsel)
 deps+=(dash) # needed for sxhkd shell
-deps+=(mpd mpc)
+#deps+=(mpd mpc)
 
 # thinklock
 deps+=(libnotify dunst)
@@ -16,7 +16,7 @@ deps+=(terminus-font rxvt-unicode ttf-croscore)
 #moar fonts
 deps+=(ttf-droid ttf-fira-mono ttf-fira-sans ttf-inconsolata ttf-vista-fonts adobe-source-sans-pro-fonts)
 
-aur+=(ttf-ms-fonts vertex-themes-git)
+#aur+=(ttf-ms-fonts vertex-themes-git)
 aur+=(lemonbar-git siji-git)
 
-bb-wrapper -S --aur "${deps[@]} ${aur[@]}"
+yay -S "${deps[@]} ${aur[@]}"
