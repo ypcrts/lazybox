@@ -1,20 +1,24 @@
 #!/bin/bash
 #xorg
-deps+=(bspwm sxhkd compton redshift xorg-server)
+deps+=(bspwm sxhkd compton arandr redshift xorg-server)
 deps+=(firefox chromium)
 deps+=(xorg-xev xorg-xinit xorg-xrandr xorg-xprop xorg-xdpyinfo xsel)
 deps+=(dash) # needed for sxhkd shell
-#deps+=(mpd mpc)
-
-# thinklock
 deps+=(libnotify dunst)
-deps+=(i3lock imagemagick scrot xautolock)
+
+deps+=(imagemagick feh scrot xscreensaver)
+
+# thinklock (rip)
+#deps+=(i3lock xautolock)
 
 #urxvt
 deps+=(terminus-font rxvt-unicode ttf-croscore)
 
 #moar fonts
 deps+=(ttf-droid ttf-fira-mono ttf-fira-sans ttf-inconsolata ttf-vista-fonts adobe-source-sans-pro-fonts)
+
+# musik
+#deps+=(mpd mpc)
 
 #aur+=(ttf-ms-fonts vertex-themes-git)
 aur+=(lemonbar-git siji-git)
