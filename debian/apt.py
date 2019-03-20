@@ -33,7 +33,7 @@ packages = ["tmux",
             "gnupg",
             "info",
             "jq",
-            "vim-nox",
+            "vim-gtk",
             "htop",
             "powertop", ]
 
