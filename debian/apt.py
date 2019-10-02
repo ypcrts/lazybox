@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(description='install base apt packages')
 parser.add_argument('--with-dev', action='store_true')
 parser.add_argument('--with-c', action='store_true')
 parser.add_argument('--with-rust', action='store_true')
-parser.add_argument('--with-neovim-unstable', action='store_true')
+parser.add_argument('--with-neovim', action='store_true')
 parser.add_argument('--with-i386', action='store_true')
 parser.add_argument('-a', '--all', action='store_true')
 opts = parser.parse_args()
@@ -33,7 +33,7 @@ packages = ["tmux",
             "gnupg",
             "info",
             "jq",
-            "vim-gtk",
+            "vim-nox",
             "htop",
             "powertop", ]
 
@@ -58,12 +58,12 @@ if opts.with_c or opts.all:
 
 if opts.with_rust or opts.all:
     packages.extend((
-        "rustc/unstable",
-        "cargo/unstable",
+        "rustc",
+        "cargo",
     ))
 
-if opts.with_neovim_unstable or opts.all:
-    packages.append('neovim/unstable')
+if opts.with_neovim or opts.all:
+    packages.append('neovim')
 
 if opts.with_i386 or opts.all:
     print('\nADDING i386 ARCH')
