@@ -56,7 +56,8 @@ main () {
   # Create
   alltables -N IN_TCP
 
-  # alltables -A IN_TCP -p tcp -m --dport 443 -j ACCEPT
+  #alltables -A IN_TCP -p tcp --dport 443 -j ACCEPT
+  #alltables -A IN_TCP -p tcp --dport 80  -j ACCEPT
 
   # SSH: ipv4 tcp port 22 jump to the IN_TCP22 chain
   $TABLE4   -N IN_TCP22
