@@ -50,7 +50,17 @@
     name: ssh
     state: restarted
 
+- name: firewall
+  block:
+    - name: iptables base setup
+      script: files/firewall.sh
 
-- name: iptables base setup
-  script: files/firewall.sh
+    - apt:
+        pkg: netfilter-persistent
+        state: latest
+        update_cache: yes
+
+    - name: netfilter-persistent
+      command: /usr/sbin/netfilter-persistent save
+
 ...
