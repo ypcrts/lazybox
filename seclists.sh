@@ -6,7 +6,9 @@ set -ex
 cd /usr/share
 [ ! -d ./seclists ]
 
-git clone https://github.com/danielmiessler/SecLists seclists
+git clone --depth 1 https://github.com/danielmiessler/SecLists seclists
 
 cd /usr/share/seclists/Passwords/Leaked-Databases
-tar xzvf rockyou.tar.gz
+tar xzvf rockyou.txt.tar.gz
+cd ../../
+ln -s Passwords/Leaked-Databases/rockyou.txt

@@ -1,5 +1,8 @@
 #!/bin/sh
 set -eux
+
+echo Debian buster has fzf now
+
 if [ -d ~/.fzf ]; then
   rm -rf ~/.fzf
 fi

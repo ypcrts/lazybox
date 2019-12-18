@@ -8,6 +8,3 @@ else
   git clone --recursive git@github.com:ypcrts/tools ~/Projects/tools
 fi
 
-echo ''
-echo "NB zardus depends on:  debian/apt.py --with-all"
-

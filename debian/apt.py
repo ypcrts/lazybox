@@ -7,15 +7,14 @@ import subprocess
 parser = argparse.ArgumentParser(description='install base apt packages')
 parser.add_argument('--with-dev', action='store_true')
 parser.add_argument('--with-c', action='store_true')
-parser.add_argument('--with-rust', action='store_true')
-parser.add_argument('--with-neovim', action='store_true')
 parser.add_argument('--with-i386', action='store_true')
 parser.add_argument('-a', '--all', action='store_true')
 opts = parser.parse_args()
 
 assert os.geteuid() == 0, "must be root"
 
-packages = ["tmux",
+# target: buster
+packages = ["tmux", "fzf",
             "screen",
             "lsof",
             "mosh",
@@ -34,8 +33,9 @@ packages = ["tmux",
             "ripgrep",
             "info",
             "jq",
-            "vim-nox",
+            "vim-nox", "neovim",
             "htop",
+            "virtualenvwrapper",
             "powertop", ]
 
 
@@ -44,34 +44,25 @@ if opts.with_dev or opts.all:
         "libncurses5-dev",  # needed to build fzf
         "clang-format",
         "python-dev",
-        "virtualenvwrapper",
         "golang-go",
-        "build-essential", # zardus prereqs
+        "build-essential",  # zardus prereqs
         "libtool",
         "g++", "gcc",
         "texinfo",
         "automake", "autoconf",
-        "magic-wormhole"
-    ))
-
-if opts.with_c or opts.all:
-    packages.extend(("clang", "cmake", "exuberant-ctags", "cproto",))
-
-if opts.with_rust or opts.all:
-    packages.extend((
+        "magic-wormhole",
         "rustc",
         "cargo",
+        "clang", "cmake", "exuberant-ctags", "cproto",
     ))
 
-if opts.with_neovim or opts.all:
-    packages.append('neovim')
 
 if opts.with_i386 or opts.all:
     print('\nADDING i386 ARCH')
     subprocess.call(['dpkg', '--add-architecture', 'i386'])
 
 print('\nAPT UPDATE')
-subprocess.call(['apt-get','update'])
+subprocess.call(['apt-get', 'update'])
 
 print('\nAPT INSTALL')
 cmd = ['apt-get', 'install', '-y'] + packages
