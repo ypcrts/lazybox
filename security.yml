@@ -1,0 +1,70 @@
+---
+- hosts: all
+  tasks:
+  - name: firewall
+    become: true
+    tags: firewall
+    block:
+      - name: iptables base setup
+        script: firewall.sh
+
+      - apt:
+          pkg: netfilter-persistent
+          state: latest
+          update_cache: yes
+
+      - name: netfilter-persistent
+        command: /usr/sbin/netfilter-persistent save
+
+  - name: sshd_config
+    become: true
+    tags: ssh sshd
+    block:
+      - name: "sshd_config {{ item.k }}"
+        replace: &sshd_config_replace
+          path:   /etc/ssh/sshd_config
+          backup: yes
+          regexp: '(?i)^[\s#]*{{item.k}}.*$'
+          replace: "{{item.k}} {{item.v}}"
+        with_items:
+          # no ipv6
+          - { k: AddressFamily,         v: inet }
+          - { k: 'ListenAddress\s+::,', v: ''  }
+
+          # logs
+          - { k: LogLevel,              v: VERBOSE }
+
+          # auth
+          - { k: 'PermitRootLogin:',    v: no }
+          - { k: LoginGraceTime,        v: 15 }
+          - { k: MaxAuthTries,          v: 3  }
+          - { k: AuthenticationMethods, v: publickey  }
+
+          - k: KexAlgorithms
+            v: "curve25519-sha256@libssh.org,\
+                ecdh-sha2-nistp521,\
+                ecdh-sha2-nistp384,\
+                ecdh-sha2-nistp256"
+                # diffie-hellman-group-exchange-sha256
+          - k: Ciphers
+            v: "chacha20-poly1305@openssh.com,\
+                aes256-gcm@openssh.com,\
+                aes128-gcm@openssh.com"
+          - k: MACs
+            v: "hmac-sha2-512-etm@openssh.com,\
+                hmac-sha2-512"
+
+          # - { k: UsePrivilegeSeparation, v: sandbox  }
+
+          # XXX: should probably be `ansible_ssh_user` for a production use
+          # - { k: AllowUsers, v: "{{ users.admin }}@127.0.0.1"
+
+      - name: "sshd_config sftp"
+        replace:
+          <<: *sshd_config_replace
+          regexp: '(?i)^[\s#]*SUBSYSTEM\s+SFTP\s+([-\w/]+)\s*$'
+          replace: 'Subsystem sftp \1 -f AUTHPRIV -l INFO'
+
+  - service:
+      name: ssh
+      state: restarted

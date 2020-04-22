@@ -1,3 +1,12 @@
+# Ansible
+
+```bash
+mkvirtualenv 3 -p /usr/bin/python3
+pip install ansible
+ansible-playbook -t ssh -K security.yml
+ansible-playbook -t firewall -K security.yml
+```
+
 # Debian GNU/Linux
 
 # Arch Linux
