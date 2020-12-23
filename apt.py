@@ -35,6 +35,7 @@ packages = ["tmux", "fzf",
             "gnupg",
             "ripgrep",
             "info",
+            "black", "isort", "pylint"
             "jq",
             "vim-nox", "neovim",
             "htop",

@@ -3,6 +3,13 @@ set -eux
 
 echo Debian buster has fzf now
 
+command -V fzf && {
+  echo You already have fzf
+  exit 0
+}
+
+echo You hacked your vimrc do install this as a vim plugin if you don't have that. Remember?
+
 if [ -d ~/.fzf ]; then
   rm -rf ~/.fzf
 fi
