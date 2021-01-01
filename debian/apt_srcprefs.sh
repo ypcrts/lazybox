@@ -1,4 +1,5 @@
 #!/bin/sh
+# This is debian specific
 set -eu
 if [ "$(id -u)" -ne 0 ]]; then
   echo 'need root'

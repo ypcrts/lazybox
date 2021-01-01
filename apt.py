@@ -1,4 +1,7 @@
 #!/usr/bin/env python
+"""
+debian/ubuntu 20LTS
+"""
 
 import argparse
 import os
@@ -23,7 +26,7 @@ packages = ["tmux", "fzf",
             "bash-completion",
             "tree",
             "rsync", "curl", "wget",
-            "pandoc", "w3m", "w3m-img",
+            "pandoc", "w3m", "w3m-img", # bloat needed by ranger?
             "lsb-release",
             "ranger",
             "unzip",
