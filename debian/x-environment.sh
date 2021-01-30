@@ -1,27 +1,28 @@
 #!/bin/sh
 # target: debian stretch, jessie
-apt-get install\
-  x11-xserver-utils xinit xdg-utils xdotool\
-  policykit-1 xscreensaver \
-  lxappearance arandr qt4-qtconfig \
-  surfraw surfraw-extra \
-  bspwm sxhkd lemonbar \
-  dunst libnotify-bin\
-  dmenu\
-  rxvt-unicode-256color\
-  make\
-  build-essential\
-  fonts-croscore\
-  xsel xinput\
-  suckless-tools xautolock\
-  imagemagick\
-  scrot\
-  compton feh rofi\
-  firefox-esr chromium\
-  vim-gtk\
-  xfonts-terminus xfonts-terminus-oblique\
-  ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline\
-  redshift
+###! these lines are now in apt.py
+# apt-get install\
+#   x11-xserver-utils xinit xdg-utils xdotool\
+#   policykit-1 xscreensaver \
+#   lxappearance arandr qt4-qtconfig \
+#   surfraw surfraw-extra \
+#   bspwm sxhkd lemonbar \
+#   dunst libnotify-bin\
+#   dmenu\
+#   rxvt-unicode-256color\
+#   make\
+#   build-essential\
+#   fonts-croscore\
+#   xsel xinput\
+#   suckless-tools xautolock\
+#   imagemagick\
+#   scrot\
+#   compton feh rofi\
+#   firefox-esr chromium\
+#   vim-gtk\
+#   xfonts-terminus xfonts-terminus-oblique\
+#   ttf-mscorefonts-installer fonts-cantarell fonts-cabin fonts-ebgaramond fonts-ebgaramond-extra fonts-jura fonts-lato fonts-linuxlibertine fonts-oxygen fonts-powerline\
+#   redshift
 
 ( ./x-environment-gtk-icons.sh )
 
