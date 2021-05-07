@@ -8,5 +8,5 @@ git clone https://github.com/creationix/nvm.git ~/.nvm
 cd ~/.nvm
 git checkout `git describe --abbrev=0 --tags`
 printf "\nnvm install complete\nUse \`loadenv nvm\` to get started.\n"
-loadenv nvm
+. ~/.nvm/nvm.sh
 nvm install node

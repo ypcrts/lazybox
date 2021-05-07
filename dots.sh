@@ -15,9 +15,9 @@ cd ~/Projects
 git clone https://github.com/ypcrts/dots || \
   die 'clone failed'
 cd dots
-if command -V python 2>&1 >/dev/null;  then
+if command -V python >/dev/null 2>&1;  then
   PYBIN=python
-elif command -V python3 2>&1 >/dev/null;  then
+elif command -V python3 >/dev/null 2>&1;  then
   PYBIN=python3
 fi
 
