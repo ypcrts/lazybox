@@ -1,0 +1,8 @@
+---
+- hosts: all
+  tasks:
+    - name: banned packages
+      apt:
+        name: command-not-found command-not-found-data
+        state: absent
+        force_apt_get: yes
